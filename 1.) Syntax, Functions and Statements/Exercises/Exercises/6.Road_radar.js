@@ -14,7 +14,7 @@ function radar(speed, location) {
             status = 'speeding';
         }
         else if (difference <= 40) {
-            status = 'exessive speeding';
+            status = 'excessive speeding';
         }
         else {
             status = 'reckless driving';
