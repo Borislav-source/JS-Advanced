@@ -1,5 +1,5 @@
 function solve(givenArr) {
-    givenArr.sort();
+    givenArr.sort((a, b) => a-b);
     const index = Math.floor(givenArr.length / 2);
     return givenArr.slice(index)
 }
