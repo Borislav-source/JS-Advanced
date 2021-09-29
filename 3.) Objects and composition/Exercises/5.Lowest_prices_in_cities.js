@@ -1,26 +1,63 @@
+function doesnt_contain(givenArr, obj) {
+    if (givenArr.includes(obj)) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
 function evaluate(input) {
+    let allData = [];
     let result = [];
     for (iterator of input) {
         [townName, productName, productPrice] = iterator.split(" | ");
-        result.push({
+        productPrice = Number(productPrice)
+        allData.push({
             townName,
             productName,
             productPrice
         })
     }
-    console.log(JSON.stringify(result));
-};
 
-evaluate(['Sample Town | Sample Product | 1000',
+    let doneProducts = [];
+    for (let obj of allData) {
+        if (doesnt_contain(doneProducts, obj.productName)) {
+            let product = obj.productName;
+            let price = obj.productPrice;
+            let town = obj.townName;
 
-    'Sample Town | Orange | 2',
+            doneProducts.push(product);
 
-    'Sample Town | Peach | 1',
 
-    'Sofia | Orange | 3',
+            allData.forEach = (element => {
+                if (element.productName == product & element.productPrice < price) {
+                    price = element.productPrice
+                    town = element.townName;
+                }
+            })
 
-    'Sofia | Peach | 2',
+            result.push({
+                product,
+                price,
+                town
+            })
+        }
+    }
+        result.forEach (obj => {
+            console.log(`${obj.product} -> ${obj.price} (${obj.town})`)
+        })
+    };
 
-    'New York | Sample Product | 1000.1',
+    evaluate(['Sample Town | Sample Product | 1000',
 
-    'New York | Burger | 10'])
+        'Sample Town | Orange | 2',
+
+        'Sample Town | Peach | 1',
+
+        'Sofia | Orange | 3',
+
+        'Sofia | Peach | 2',
+
+        'New York | Sample Product | 1000.1',
+
+        'New York | Burger | 10'])
