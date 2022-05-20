@@ -14,6 +14,28 @@ function test_same_digit(num) {
     console.log(sum)
 }
 
-test_same_digit(1234);
-test_same_digit(1111);
-test_same_digit(22222222);
+//test_same_digit(1234);
+//test_same_digit(1111);
+//test_same_digit(22222222);
+
+
+
+function solve2(num){
+    let first_num = num % 10;
+    let condition = true;
+    let sum = 0;
+
+    while (num) {
+        next = num % 10;
+        if (first_num !== next){
+            condition == false;
+        }
+        sum += next
+        num = Math.floor(num/10);
+    }
+    console.log(condition);
+    console.log(sum);
+}
+
+
+solve2(2222222);

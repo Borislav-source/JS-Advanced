@@ -7,3 +7,5 @@ function solve(fruit, weight, price) {
 
 
 solve('oranges', 2500, 1.80)
+
+
